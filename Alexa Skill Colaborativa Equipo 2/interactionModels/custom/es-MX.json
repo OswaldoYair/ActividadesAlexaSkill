@@ -1,0 +1,186 @@
+{
+  "interactionModel": {
+    "dialog": {
+      "intents": [
+        {
+          "slots": [
+            {
+              "name": "IntentEnfermedad",
+              "elicitationRequired": true,
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.81967543128.580692783862.1006259451410"
+                }
+              ],
+              "type": "slotEnfermedad",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.81967543128.580692783862"
+              }
+            }
+          ],
+          "name": "RegisterEnfermedadIntent",
+          "confirmationRequired": false,
+          "prompts": {}
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "languageModel": {
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "slots": [
+            {
+              "name": "IntentEnfermedad",
+              "type": "slotEnfermedad",
+              "samples": [
+                "la enfermedad es {IntentEnfermedad}",
+                "padezco {IntentEnfermedad}",
+                "es {IntentEnfermedad}",
+                "{IntentEnfermedad}"
+              ]
+            }
+          ],
+          "name": "RegisterEnfermedadIntent",
+          "samples": [
+            "tengo la enfermedad de {IntentEnfermedad}",
+            "padesco de {IntentEnfermedad}",
+            "tengo {IntentEnfermedad}",
+            "padezco otra enfermedad",
+            "quiero que me informes de otra enfermedad",
+            "quiero informacion de otra enfermedad",
+            "tengo otra enfermedad"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "SayClinicasIntent",
+          "samples": [
+            "necesito una clinica que trate esta enfermedad",
+            "abra una clinica que trate esta enfermedad",
+            "hay una clinica que trate esta enfermedad",
+            "recomiendame una clinica por la enfermedad",
+            "quiero una recomendacion de una clinica",
+            "recomiendame una clinica"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "SayLocationClinicasIntent",
+          "samples": [
+            "muestrame la ubicacion de la clinica",
+            "dime donde esta esta clinica",
+            "sabes donde esta esa clinica",
+            "donde esta la clinica que me mostrastes",
+            "en que lugar se encuentra la clinica",
+            "donde se encuentra esta clinica",
+            "Donde esta esta clinica",
+            "Quiero la localizacion de la clinica",
+            "Dime la localizacion de la clinica"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "diabetes"
+              },
+              "id": "1"
+            },
+            {
+              "name": {
+                "value": "insuficiencia cardiaca"
+              },
+              "id": "8"
+            },
+            {
+              "name": {
+                "value": "hipertension"
+              },
+              "id": "7"
+            },
+            {
+              "name": {
+                "value": "artritis"
+              },
+              "id": "6"
+            },
+            {
+              "name": {
+                "value": "colesterol"
+              },
+              "id": "5"
+            },
+            {
+              "name": {
+                "value": "diabetes tipo dos"
+              },
+              "id": "4"
+            },
+            {
+              "name": {
+                "value": "diabetes tipo uno"
+              },
+              "id": "3"
+            },
+            {
+              "name": {
+                "value": "diabetes mellitus"
+              },
+              "id": "2"
+            }
+          ],
+          "name": "slotEnfermedad"
+        }
+      ],
+      "invocationName": "mas salud"
+    },
+    "prompts": [
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Requiero del nombre de una enfermedad, como por ejemplo diabetes mellitus"
+          },
+          {
+            "type": "PlainText",
+            "value": "Entiendo, pero dime una enfermedad para darte recomendaciones, como por ejemplo diabetes mellitus"
+          },
+          {
+            "type": "PlainText",
+            "value": "Necesito saber que enfermedad padeces o de la que necesitas informacion, como por ejemplo diabetes mellitus"
+          }
+        ],
+        "id": "Elicit.Slot.81967543128.580692783862"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Por favor dime una enfermedad mostrada en el catalogo"
+          }
+        ],
+        "id": "Slot.Validation.81967543128.580692783862.1006259451410"
+      }
+    ]
+  }
+}
