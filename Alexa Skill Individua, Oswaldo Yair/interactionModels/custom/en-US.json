@@ -1,0 +1,213 @@
+{
+  "interactionModel": {
+    "dialog": {
+      "intents": [
+        {
+          "slots": [
+            {
+              "name": "IntentPresupuesto",
+              "elicitationRequired": true,
+              "validations": [
+                {
+                  "type": "isGreaterThanOrEqualTo",
+                  "prompt": "Slot.Validation.1452372261137.328434138629.993852638606",
+                  "value": "1000"
+                }
+              ],
+              "type": "AMAZON.NUMBER",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1452372261137.328434138629"
+              }
+            },
+            {
+              "name": "IntentAntiguedad",
+              "elicitationRequired": true,
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.1452372261137.1683094289759.1173161775396"
+                }
+              ],
+              "type": "SlotAntiguedad",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1452372261137.1683094289759"
+              }
+            }
+          ],
+          "name": "RegisterDatosIntent",
+          "confirmationRequired": false,
+          "prompts": {}
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "languageModel": {
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": [
+            "thanks for the recommendation",
+            "Thank you very much for the recommendations",
+            "thank you so much",
+            "see you later",
+            "thank you for the recommendations",
+            "see you",
+            "see you later",
+            "bye bye",
+            "close"
+          ]
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": [
+            "can you tell me what this skill does",
+            "i\u0027m confused",
+            "what does this skill do",
+            "i need help",
+            "help me",
+            "help"
+          ]
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": [
+            "wait for me a little bit",
+            "wait for me for a while",
+            "hold",
+            "hold on for a while",
+            "wait for me a moment",
+            "hang on a minute",
+            "wait",
+            "don\u0027t worry",
+            "ends",
+            "wait",
+            "finish"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "slots": [
+            {
+              "name": "IntentPresupuesto",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "{IntentPresupuesto}",
+                "i have {IntentPresupuesto}",
+                "is {IntentPresupuesto}"
+              ]
+            },
+            {
+              "name": "IntentAntiguedad",
+              "type": "SlotAntiguedad",
+              "samples": [
+                "the {IntentAntiguedad}",
+                "{IntentAntiguedad}",
+                "they are the {IntentAntiguedad}"
+              ]
+            }
+          ],
+          "name": "RegisterDatosIntent",
+          "samples": [
+            "my budget is {IntentPresupuesto} and i like {IntentAntiguedad} cars",
+            "i like {IntentAntiguedad} cars",
+            "my budget is {IntentPresupuesto}",
+            "i want to change my data",
+            "i\u0027m going to change my data",
+            "register my new data"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "SayRecomendacionesIntent",
+          "samples": [
+            "give me a recommendation for a car",
+            "can you give me a recommendation",
+            "what car do you recommend",
+            "recommend me a car",
+            "I want a recommendation",
+            "give me a recommendation"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "modern"
+              },
+              "id": "2"
+            },
+            {
+              "name": {
+                "value": "classic"
+              },
+              "id": "1"
+            }
+          ],
+          "name": "SlotAntiguedad"
+        }
+      ],
+      "invocationName": "car recommendation"
+    },
+    "prompts": [
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "tell me your budget"
+          },
+          {
+            "type": "PlainText",
+            "value": "what is your budget?"
+          },
+          {
+            "type": "PlainText",
+            "value": "what budget do you have?"
+          }
+        ],
+        "id": "Elicit.Slot.1452372261137.328434138629"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "You must manage a budget greater than a thousand dollars"
+          }
+        ],
+        "id": "Slot.Validation.1452372261137.328434138629.993852638606"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "ok, I know you have {IntentPresupuesto} of budget, but tell me what is your preferred type of car"
+          },
+          {
+            "type": "PlainText",
+            "value": "now tell me what kind of cars you like"
+          },
+          {
+            "type": "PlainText",
+            "value": "tell me what kind of cars you like"
+          }
+        ],
+        "id": "Elicit.Slot.1452372261137.1683094289759"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Please tell me if you like classic or modern cars"
+          }
+        ],
+        "id": "Slot.Validation.1452372261137.1683094289759.1173161775396"
+      }
+    ]
+  }
+}

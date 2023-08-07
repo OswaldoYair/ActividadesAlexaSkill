@@ -1,0 +1,213 @@
+{
+  "interactionModel": {
+    "dialog": {
+      "intents": [
+        {
+          "slots": [
+            {
+              "name": "IntentPresupuesto",
+              "elicitationRequired": true,
+              "validations": [
+                {
+                  "type": "isGreaterThanOrEqualTo",
+                  "prompt": "Slot.Validation.1452372261137.328434138629.993852638606",
+                  "value": "1000"
+                }
+              ],
+              "type": "AMAZON.NUMBER",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1452372261137.328434138629"
+              }
+            },
+            {
+              "name": "IntentAntiguedad",
+              "elicitationRequired": true,
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.1452372261137.1683094289759.1173161775396"
+                }
+              ],
+              "type": "SlotAntiguedad",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1452372261137.1683094289759"
+              }
+            }
+          ],
+          "name": "RegisterDatosIntent",
+          "confirmationRequired": false,
+          "prompts": {}
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "languageModel": {
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": [
+            "gracias por la recomendacion",
+            "muchas gracias por las recomendaciones",
+            "muchas gracias",
+            "nos vemos luego",
+            "gracias por las recomendaciones",
+            "nos vemos",
+            "hasta luego",
+            "adios",
+            "cerrar"
+          ]
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": [
+            "puedes decirme que hace esta skill",
+            "estoy confundido",
+            "que hace esta skill",
+            "necesito ayuda",
+            "ayudame",
+            "ayuda"
+          ]
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": [
+            "esperame un ratito",
+            "esperame un rato",
+            "aguanta",
+            "aguanto un rato",
+            "esperame un momento",
+            "espera un momento",
+            "esperate",
+            "tranquilo",
+            "termina",
+            "espera",
+            "terminar"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "slots": [
+            {
+              "name": "IntentPresupuesto",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "{IntentPresupuesto}",
+                "tengo {IntentPresupuesto}",
+                "es de {IntentPresupuesto}"
+              ]
+            },
+            {
+              "name": "IntentAntiguedad",
+              "type": "SlotAntiguedad",
+              "samples": [
+                "los {IntentAntiguedad}",
+                "{IntentAntiguedad}",
+                "son los {IntentAntiguedad}"
+              ]
+            }
+          ],
+          "name": "RegisterDatosIntent",
+          "samples": [
+            "mi presupuesto es de {IntentPresupuesto} y me gustan los autos {IntentAntiguedad}",
+            "me gustan los autos {IntentAntiguedad}",
+            "mi presupuesto es de {IntentPresupuesto}",
+            "quiero cambiar mis datos",
+            "voy a cambiar mis datos",
+            "registra mis nuevos datos"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "SayRecomendacionesIntent",
+          "samples": [
+            "dame una recomendacion de un auto",
+            "puedes darme una recomendacion",
+            "que auto me recomiendas",
+            "recomiendame un auto",
+            "quiero una recomendacion",
+            "dame una recomendacion"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "modernos"
+              },
+              "id": "2"
+            },
+            {
+              "name": {
+                "value": "clasicos"
+              },
+              "id": "1"
+            }
+          ],
+          "name": "SlotAntiguedad"
+        }
+      ],
+      "invocationName": "recomendacion autos"
+    },
+    "prompts": [
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Dime tu presupuesto"
+          },
+          {
+            "type": "PlainText",
+            "value": "cual es tu presupuesto?"
+          },
+          {
+            "type": "PlainText",
+            "value": "con que presupuesto cuentas?"
+          }
+        ],
+        "id": "Elicit.Slot.1452372261137.328434138629"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Debes administrar un presupuesto mayor a mil dolares"
+          }
+        ],
+        "id": "Slot.Validation.1452372261137.328434138629.993852638606"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "vale, se que tienes {IntentPresupuesto} de presupuesto, pero dime cual es tu tipo de auto preferido"
+          },
+          {
+            "type": "PlainText",
+            "value": "ahora dime que tipo de autos te gustan"
+          },
+          {
+            "type": "PlainText",
+            "value": "dime que tipo de autos te gustan"
+          }
+        ],
+        "id": "Elicit.Slot.1452372261137.1683094289759"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Por favor dime si te gustan los autos clasicos o modernos"
+          }
+        ],
+        "id": "Slot.Validation.1452372261137.1683094289759.1173161775396"
+      }
+    ]
+  }
+}
